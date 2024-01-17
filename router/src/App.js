@@ -1,25 +1,34 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
+import Home from './Home';
+import Contact from './Contact';
+import {BrowserRouter, Link} from 'react-router'
+import RoutesXYZ from './Routes';
 
-function App() {
+function App()  {
+   const[component , setComponenet] = useState(Home)
+
+
   return (
+    <BrowserRouter>
+    <RoutesXYZ/>
+    <Link to="/Home">HomeXYZ</Link>
+    <Link to="/Contact">ContactXYZ</Link>
+   
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     {/* <nav>
+      <ul>
+        <li onClick={()=>{setComponenet(Home)}}>Home</li>
+        <li onClick={()=>{setComponenet(contact)}}>contact</li>
+      </ul>
+     </nav>
+     {component === "Home"?<Home/>:<contact/>} */}
+     
     </div>
-  );
-}
+    </BrowserRouter>
+  )
+  }
+
 
 export default App;
